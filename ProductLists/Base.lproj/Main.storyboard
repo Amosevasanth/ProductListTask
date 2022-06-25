@@ -1,24 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ProductLists" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IlE-Ob-dgT">
+                                <rect key="frame" x="0.0" y="812" width="414" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="BJq-cl-HXY"/>
+                                </constraints>
+                                <items>
+                                    <tabBarItem title="Home" image="house" catalog="system" id="elk-gH-gN0"/>
+                                    <tabBarItem title="Categories" image="circle.grid.3x3" catalog="system" id="A4t-qt-Jwn"/>
+                                    <tabBarItem title="Offers" image="percent" catalog="system" id="vqA-Zx-Iqm"/>
+                                    <tabBarItem title="Cart" image="cart" catalog="system" badgeValue="2" id="LQl-Aa-j6m"/>
+                                    <tabBarItem title="Account" image="person" catalog="system" id="N9y-0n-FDl"/>
+                                </items>
+                            </tabBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="3eq-HU-Wjl">
+                                <rect key="frame" x="0.0" y="88" width="414" height="724"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="fkY-LY-ncG"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="OLN-XX-Djq"/>
+                                </connections>
+                            </tableView>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xZF-SR-DFR">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="gLg-W6-F2L"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="xZF-SR-DFR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="0zy-6Q-7y0"/>
+                            <constraint firstItem="IlE-Ob-dgT" firstAttribute="top" secondItem="3eq-HU-Wjl" secondAttribute="bottom" id="4cz-i4-I0t"/>
+                            <constraint firstItem="IlE-Ob-dgT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="4iJ-aW-dwi"/>
+                            <constraint firstItem="3eq-HU-Wjl" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="DCo-Wh-OMa"/>
+                            <constraint firstItem="3eq-HU-Wjl" firstAttribute="top" secondItem="xZF-SR-DFR" secondAttribute="bottom" id="Dyu-56-dUn"/>
+                            <constraint firstItem="xZF-SR-DFR" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Hj0-bc-tC3"/>
+                            <constraint firstItem="IlE-Ob-dgT" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="N72-xK-xEV"/>
+                            <constraint firstItem="xZF-SR-DFR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="had-Di-qSJ"/>
+                            <constraint firstItem="IlE-Ob-dgT" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="uZq-Le-YwU"/>
+                            <constraint firstItem="3eq-HU-Wjl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="wpB-fW-FSF"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mainListView" destination="3eq-HU-Wjl" id="Nvh-4G-yLl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="160.86956521739131" y="129.91071428571428"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="cart" catalog="system" width="128" height="102"/>
+        <image name="circle.grid.3x3" catalog="system" width="128" height="110"/>
+        <image name="house" catalog="system" width="128" height="106"/>
+        <image name="percent" catalog="system" width="128" height="121"/>
+        <image name="person" catalog="system" width="128" height="117"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
